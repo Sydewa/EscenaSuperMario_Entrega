@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public SpriteRenderer dirMirada;
     public Animator _animator;
     public bool isGrounded = false;
+    private GameManager gameManager;
 
     Rigidbody2D _rBody;
 
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rBody = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
     }
 
@@ -28,7 +30,9 @@ public class Player : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         Debug.Log(dirX);
         
-        transform.position += new Vector3(dirX, 0, 0) * speed * Time.deltaTime;
+        //transform.position += new Vector3(dirX, 0, 0) * speed * Time.deltaTime;
+
+
         if(dirX == -1)
         {
             dirMirada.flipX = true;
@@ -53,4 +57,45 @@ public class Player : MonoBehaviour
        
 
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        /*if(collider.gameObject.CompareTag("Goombas"))
+        {
+            Debug.Log("Goomba muerto");
+        }*/
+
+        if(collider.gameObject.layer == 6)
+        {
+            Debug.Log("Goomba muerto");
+            gameManager.DeathGoomba(collider.gameObject);
+        }
+
+        if(collider.gameObject.CompareTag("DeadZone"))
+        {
+            Debug.Log("Morido");
+            gameManager.DeathMario();
+            
+        }
+        if(collider.gameObject.CompareTag("Moneda"))
+        {
+            Destroy(collider.gameObject);
+            gameManager.MonedaSound();
+        }
+        if (collider.gameObject.CompareTag("Bandera"))
+        {
+            
+            gameManager.BanderaSound();
+        }
+
+    }
+    //movimiento player
+    void FixedUpdate()
+    {
+        _rBody.velocity = new Vector2(dirX * speed, _rBody.velocity.y);
+
+    }
+    
+
+
 }

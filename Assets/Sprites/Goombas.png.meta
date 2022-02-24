@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: -2917135588249730728
     second: Goombas_0
+  - first:
+      213: 4601171489437133128
+    second: Goombas_1
+  - first:
+      213: -4738279787625940103
+    second: Goombas_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,8 +107,8 @@ TextureImporter:
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -110,6 +116,48 @@ TextureImporter:
       bones: []
       spriteID: 85189bc53a04487d0800000000000000
       internalID: -2917135588249730728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goombas_1
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 16
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8492e827715aadf30800000000000000
+      internalID: 4601171489437133128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goombas_2
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1
+        width: 16
+        height: 8
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b742c33af3e3eb0800000000000000
+      internalID: -4738279787625940103
       vertices: []
       indices: 
       edges: []
