@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {   
     private SFXManager sfxManager;
     private BGMManager bgmManager;
+    private int coins;
+    public Text coinsText;
+    private int goombasKilled;
+    public Text goombasText;
 
     void Awake()
     {
@@ -21,16 +28,23 @@ public class GameManager : MonoBehaviour
     public void MonedaSound()
     {
         sfxManager.MonedaSound();
+        coins++;
+        coinsText.text = "Coins: " + coins;
         
     }
     public void BanderaSound()
     {
         sfxManager.BanderaSound();
         bgmManager.StopBGM();
+        SceneManager.LoadScene(2);
+
     }
 
     public void DeathGoomba(GameObject goomba)
     {
+        goombasKilled++;
+        goombasText.text = "Goombas: " + goombasKilled;
+
         Animator goombaAnimator;
         Enemy goombaScript;
         BoxCollider2D goombaCollider;
